@@ -5,7 +5,7 @@ const minus=document.getElementById("minus");
 const number=document.querySelector("span");
 
 
-const countModifier=(state=1, action)=>{
+const countModifier=(state=0, action)=>{
   switch(action.type){
     case "add":
       return state+1;
