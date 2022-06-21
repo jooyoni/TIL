@@ -1,32 +1,16 @@
 import { useState } from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
-import { actionCreators } from "../store";
-
+import { useDispatch, useSelector } from "react-redux";
+import { decrease, increase } from "../store";
 function Home(){
-    const [text, setText]= useState("");
+    const value=useSelector(state=>state.counter);
     const dispatch=useDispatch();
-    const a=useSelector((state)=>state) ;
-    console.log(a)
-    function onChange(e){
-        setText(e.target.value);
-    }
-    function onSubmit(e){
-        e.preventDefault();
-        dispatch({type:"add", text})
-        setText("");
-    }
     return (
-    <>
-        <h1>To Do</h1>
-        <form onSubmit={onSubmit}>
-            <input type="text" value={text} onChange={onChange}></input>
-            <button>add</button>
-        </form>
-        <ul>
-            {a.map((item)=><li key={item.id}>{item.text}</li>)}
-        </ul>
-    </>
-    )
+        <div>
+            {value}
+            <button onClick={()=>dispatch(increase())}>plus</button>
+            <button onClick={()=>dispatch(decrease())}>minus</button>
+        </div>
+    )   
 }
 
 export default Home;
