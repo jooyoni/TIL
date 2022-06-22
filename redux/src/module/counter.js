@@ -1,8 +1,5 @@
-import { combineReducers } from "redux";
-
 const INCREASE="INCREASE";
 const DECREASE="DECREASE";
-const ADDLIST="ADDLIST";
 
 export const increase=()=>{
     return {
@@ -12,13 +9,6 @@ export const increase=()=>{
 export const decrease=()=>{
     return {
         type:DECREASE
-    }
-}
-
-export const addList=(todo)=>{
-    return {
-        type:ADDLIST,
-        todo:todo
     }
 }
 
@@ -32,7 +22,3 @@ export const counter=(state=0, action)=>{
             return state;
     }
 }
-
-export const reducer=combineReducers({
-    addList, counter
-})
