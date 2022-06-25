@@ -1,20 +1,17 @@
+function addAndHandle(n1:number,n2:number, cb:(num:number)=>void){
+  const result=n1+n2;
+  cb(result);
+}
+addAndHandle(2,5,(result)=>{console.log(result)})
 
-    enum Role{
-        ADMIN=1, USER=2
-      }
-    type NumStr={
-        name:string
-    };
-      interface Props{
-        name:string;
-        age:NumStr;
-      }
-      const person:Props= {
-        name: 'Maximilian',
-        age: {
-            name:"df "
-        }
-      };
-      
-      console.log(person.age);
-      
+let value:unknown;
+value="a";
+let val:string;
+if(typeof value==="string"){
+  val=value;
+}
+
+function generateError(message:string, code:number):never{
+  throw {message, code}
+}
+generateError("error occurred", 500);
