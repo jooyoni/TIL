@@ -21,3 +21,17 @@ const e1: Elevated = {
     privileges: ["dfd"],
     startDate: new Date(),
 };
+
+interface Horse {
+    speed: number;
+}
+interface Bird {
+    flyingSpeed: number;
+}
+function move(animal: Horse | Bird) {
+    if ("speed" in animal) console.log(animal.speed);
+}
+const button: HTMLInputElement = document.querySelector("input")!;
+button.value = "hi";
+const input = document.getElementById("userInput");
+if (input) (input as HTMLInputElement).value = "df";
