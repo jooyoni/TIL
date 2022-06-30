@@ -60,3 +60,13 @@ console.log(object?.school?.name);
 const userInput = null;
 const storedData = userInput ?? "DEFAULT";
 console.log(storedData);
+const names: Array<string> = [];
+
+const promise: Promise<string> = new Promise((resolve, reject) => {
+    let a = 10;
+    setTimeout(() => {
+        if (typeof a == "number") resolve("success");
+        else reject("fail");
+    }, 1000);
+});
+promise.then((res) => console.log(res));
