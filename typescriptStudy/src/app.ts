@@ -94,29 +94,46 @@
 // console.log(countAndPrint("hi"));
 // console.log(countAndPrint([]));
 
-function extractAndConvert<T extends object, U extends keyof T>(
-    obj: T,
-    key: U
-) {
-    return obj[key];
+// function extractAndConvert<T extends object, U extends keyof T>(
+//     obj: T,
+//     key: U
+// ) {
+//     return obj[key];
+// }
+
+// console.log(extractAndConvert({ name: "lee" }, "name"));
+
+// class DataStorage<T extends { name: string }> {
+//     private data: T[] = [];
+//     addItem(item: T) {
+//         this.data.push(item);
+//     }
+//     removeItem(item: T) {
+//         this.data.splice(this.data.indexOf(item), 1);
+//     }
+//     getItems() {
+//         return [...this.data];
+//     }
+// }
+// const textStorage = new DataStorage();
+// textStorage.addItem({ name: "lee" });
+// textStorage.addItem({ name: "park" });
+// // textStorage.addItem({ age: 23 });
+// console.log(textStorage.getItems());
+interface CourseGoal{
+    title:string;
+    description:string;
+    completeUntil:Date;
 }
 
-console.log(extractAndConvert({ name: "lee" }, "name"));
-
-class DataStorage<T extends { name: string }> {
-    private data: T[] = [];
-    addItem(item: T) {
-        this.data.push(item);
-    }
-    removeItem(item: T) {
-        this.data.splice(this.data.indexOf(item), 1);
-    }
-    getItems() {
-        return [...this.data];
-    }
+function createCourseGoal(title:string,
+     description:string,  
+     date:Date):CourseGoal{
+    let courseGoal:Partial<CourseGoal>={};
+    courseGoal.title=title;
+    courseGoal.description=description;
+    courseGoal.completeUntil=date;
+    return courseGoal as CourseGoal;
 }
-const textStorage = new DataStorage();
-textStorage.addItem({ name: "lee" });
-textStorage.addItem({ name: "park" });
-// textStorage.addItem({ age: 23 });
-console.log(textStorage.getItems());
+
+const names:Readonly<string[]>=['Max', 'Park'];
